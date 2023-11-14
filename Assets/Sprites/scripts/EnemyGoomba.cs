@@ -9,6 +9,7 @@ public class EnemyGoomba : MonoBehaviour
 
 
     public float MovementSpeedperSecond = 10.0f;
+    public float MovementSign = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class EnemyGoomba : MonoBehaviour
         Vector3 characterVelocity = myRigidBody.velocity;
         characterVelocity.x = 0;
 
-        characterVelocity += MovementSpeedperSecond * transform.right.normalized;
+        characterVelocity += MovementSign*MovementSpeedperSecond * transform.right.normalized;
         myRigidBody.velocity = characterVelocity;
     }
 }

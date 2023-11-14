@@ -1,11 +1,18 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
 using UnityEditor.Build;
 
 public class PhysicsCharacterController : MonoBehaviour
 {
+    public SpriteRenderer mySpriteComponent = null;
+    public List<Sprite> CharacterSprites = new List<Sprite>();
+    
+ 
+
+    public int HP = 1;
+    
     public Rigidbody2D myRigidBody = null;
     public CharacterState JumpingState = CharacterState.Airborne;
 
@@ -22,6 +29,21 @@ public class PhysicsCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int hpCopy = HP - 1;
+        if (hpCopy < 0)
+        {
+            hpCopy = 0;
+        }
+        if (hpCopy >= CharacterSprites.Count)
+        {
+            hpCopy = CharacterSprites.Count - 1;
+        }
+        mySpriteComponent.sprite = CharacterSprites[hpCopy];
+        
+        
+        
+        
+        
         Vector3 characterPosition = myRigidBody.velocity;
         characterPosition.x = 0.0f;
         //Up
