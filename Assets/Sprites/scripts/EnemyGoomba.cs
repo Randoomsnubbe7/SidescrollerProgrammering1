@@ -1,10 +1,13 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyGoomba : MonoBehaviour
 {
-      public Rigidbody2D myRigidBody = null;
+    public int HP = 0;
+
+    public Rigidbody2D myRigidBody = null;
 
 
 
@@ -23,5 +26,8 @@ public class EnemyGoomba : MonoBehaviour
 
         characterVelocity += MovementSign*MovementSpeedperSecond * transform.right.normalized;
         myRigidBody.velocity = characterVelocity;
+
+
+
     }
 }

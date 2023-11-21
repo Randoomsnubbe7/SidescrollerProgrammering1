@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8551645932654865086}
   - component: {fileID: 7472908895693967655}
-  - component: {fileID: 4350478921607858159}
+  - component: {fileID: 5690856934678536981}
+  - component: {fileID: 8017276248245197224}
+  - component: {fileID: 2542354360751915120}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -86,7 +88,79 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4350478921607858159
+--- !u!61 &5690856934678536981
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753695568355833869}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 32}
+    newSize: {x: 16, y: 32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 32}
+  m_EdgeRadius: 0
+--- !u!50 &8017276248245197224
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753695568355833869}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &2542354360751915120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,15 +169,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1753695568355833869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30e9d0e19cd89384e9199527b1e426c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 76b16c6bc5cab934390a944378f06258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySpriteComponent: {fileID: 7472908895693967655}
+  CharacterSprites:
+  - {fileID: 21300000, guid: 36abf14554196a64e8157ab87c556f82, type: 3}
+  - {fileID: 21300000, guid: a6b07b9541b8f2d4a9721dfb4110b4c7, type: 3}
+  - {fileID: 21300000, guid: c9e325c5fe49e784ea0ff8f135325684, type: 3}
+  HP: 1
+  myRigidBody: {fileID: 8017276248245197224}
   JumpingState: 1
-  MovementSpeedPerSecond: 100
+  MovementSpeedPerSecond: 10
   GravitySpeedPerSecond: 160
   GroundLevel: 0
   JumpSpeedFactor: 3
-  JumpMaxHeight: 40
+  JumpMaxHeight: 150
 --- !u!1 &2216797931807175626
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 2216797931807175626}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 56.550167, y: 13.226567, z: 3.048008}
+  m_LocalPosition: {x: 0, y: -16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,5 +260,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 14, y: 1}
   m_EdgeRadius: 0

@@ -8,11 +8,11 @@ public class PhysicsCharacterController : MonoBehaviour
 {
     public SpriteRenderer mySpriteComponent = null;
     public List<Sprite> CharacterSprites = new List<Sprite>();
-    
- 
+
+
 
     public int HP = 1;
-    
+
     public Rigidbody2D myRigidBody = null;
     public CharacterState JumpingState = CharacterState.Airborne;
 
@@ -39,11 +39,11 @@ public class PhysicsCharacterController : MonoBehaviour
             hpCopy = CharacterSprites.Count - 1;
         }
         mySpriteComponent.sprite = CharacterSprites[hpCopy];
-        
-        
-        
-        
-        
+
+
+
+
+
         Vector3 characterPosition = myRigidBody.velocity;
         characterPosition.x = 0.0f;
         //Up
@@ -54,7 +54,7 @@ public class PhysicsCharacterController : MonoBehaviour
         }
         if (JumpingState == CharacterState.Jumping)
         {
-            
+
 
 
             float totalJumpMovementThisFrame = MovementSpeedPerSecond * JumpSpeedFactor * Time.deltaTime;
@@ -98,15 +98,11 @@ public class PhysicsCharacterController : MonoBehaviour
         }
         myRigidBody.velocity = characterPosition;
 
-        if (JumpingState == CharacterState.Airborne)
+    }
+    public void TakeDamage(int aHPvalue)
         {
-            Vector3 gravityPosition = transform.position;
-            gravityPosition.y -= GravitySpeedPerSecond * Time.deltaTime;
-            if (gravityPosition.y < GroundLevel) { gravityPosition.y = GroundLevel; }
-            transform.position = gravityPosition;
 
         }
-    }
 }
 
 
