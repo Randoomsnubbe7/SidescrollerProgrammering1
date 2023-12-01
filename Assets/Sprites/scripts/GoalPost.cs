@@ -16,7 +16,11 @@ public class GoalPost : MonoBehaviour
         var PlayerScript = collision.gameObject.GetComponent<PhysicsCharacterController>();
         if (PlayerScript != null)
         {
-            mySceneLoader.LoadScene(NextScene);
+            if(mySceneLoader != null)
+            {
+                mySceneLoader.LoadScene(NextScene);
+
+            }
         }
 
     }

@@ -44,8 +44,8 @@ public class PhysicsCharacterController : MonoBehaviour
 
 
 
-        Vector3 characterPosition = myRigidBody.velocity;
-        characterPosition.x = 0.0f;
+        Vector3 characterPosition = transform.position;
+        //characterPosition.x = 0.0f;
         //Up
         if (Input.GetKey(KeyCode.W) && JumpingState == CharacterState.Grounded)
         {
@@ -70,21 +70,21 @@ public class PhysicsCharacterController : MonoBehaviour
 
 
 
-        //Down
-        if (Input.GetKey(KeyCode.S))
+        ////Down
+        //if (Input.GetKey(KeyCode.S))
 
-        {
+        //{
 
-            characterPosition.y -= MovementSpeedPerSecond;
-            transform.position = characterPosition;
-        }
+        //    characterPosition.y -= Time.deltaTime *MovementSpeedPerSecond;
+        //    transform.position = characterPosition;
+        //}
 
 
         //Left
         if (Input.GetKey(KeyCode.A))
         {
 
-            characterPosition.x -= MovementSpeedPerSecond;
+            characterPosition.x -= MovementSpeedPerSecond*Time.deltaTime;
         }
 
         //Right
@@ -92,11 +92,11 @@ public class PhysicsCharacterController : MonoBehaviour
         {
 
 
-            characterPosition.x += MovementSpeedPerSecond;
+            characterPosition.x += MovementSpeedPerSecond*Time.deltaTime;
 
 
         }
-        myRigidBody.velocity = characterPosition;
+        transform.position = characterPosition;
 
     }
     public void TakeDamage(int aHPvalue)
